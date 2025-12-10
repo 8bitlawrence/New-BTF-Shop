@@ -184,7 +184,7 @@ function showToast(message) {
 const modal = document.getElementById("checkout-modal");
 const modalClose = document.getElementById("modal-close");
 const checkoutForm = document.getElementById("checkout-form");
-const purchaseItemsField = document.getElementById("purchase-items");
+const purchaseMessageField = document.getElementById("purchase-message");
 
 function openCheckout() {
   if (!cart.length) {
@@ -192,7 +192,7 @@ function openCheckout() {
     return;
   }
   const itemsList = cart.map((item) => `${item.name} (${item.priceLabel})`).join(", ");
-  purchaseItemsField.textContent = itemsList;
+  purchaseMessageField.value = `Items: ${itemsList}`;
   modal.classList.add("is-visible");
 }
 

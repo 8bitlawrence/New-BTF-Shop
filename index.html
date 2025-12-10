@@ -94,7 +94,9 @@
         <h2>Complete Your Purchase</h2>
         <button id="modal-close" class="ghost modal__close">✕</button>
       </div>
-      <form id="checkout-form" name="purchase" method="POST" data-netlify="true">
+      <form id="checkout-form" name="contact" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="bot-field" />
         <div class="form-group">
           <label for="purchase-name">Name</label>
           <input type="text" id="purchase-name" name="name" placeholder="Your name" required />
@@ -104,11 +106,10 @@
           <input type="email" id="purchase-email" name="email" placeholder="Your email" required />
         </div>
         <div class="form-group">
-          <label for="purchase-items">Items</label>
-          <textarea id="purchase-items" name="items" placeholder="Your items" readonly></textarea>
+          <label for="purchase-message">Purchase</label>
+          <textarea id="purchase-message" name="message" placeholder="Your message"></textarea>
         </div>
-        <input type="hidden" name="bot-field" />
-        <button type="submit" class="cta modal__submit">Confirm Purchase</button>
+        <button type="submit" class="cta modal__submit">Send</button>
       </form>
     </div>
   </div>
