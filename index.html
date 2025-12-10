@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BTF Shop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="hero">
+    <div class="hero__top">
+      <div class="brand">
+        <span class="brand__icon">✨</span>
+        <div>
+          <p class="eyebrow">BTF Universe</p>
+          <h1>BTF Shop</h1>
+        </div>
+      </div>
+      <div class="hero__stats">
+        <button class="pill" onclick="window.location.href='https://btf-vibe.netlify.app'">Back to game</button>
+      </div>
+    </div>
+    <p class="hero__subtitle">Flashy, faster, and built for flexing your BTF status.</p>
+    <div class="hero__filters">
+      <div class="filters" id="filters"></div>
+      <div class="search">
+        <input id="search" type="search" placeholder="Search rare pets" aria-label="Search products" />
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="products" aria-label="Product grid">
+      <div class="products__grid" id="product-grid"></div>
+    </section>
+    <aside class="cart" aria-label="Cart summary">
+      <div class="cart__header">
+        <div>
+          <p class="eyebrow">Cart</p>
+          <h2>Ready to flex?</h2>
+        </div>
+        <button id="clear-cart" class="ghost">Clear</button>
+      </div>
+      <div id="cart-items" class="cart__items"></div>
+      <div class="cart__totals" id="cart-totals"></div>
+      <button class="cta" id="checkout">Checkout</button>
+      <p class="cart__hint">All items are pending availability.</p>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    
+    <p class="footer__note">Questions? lawrencetong1030@gmail.com</p>
+  </footer>
+
+  <template id="product-card-template">
+    <article class="card">
+      <div class="card__head">
+        
+        <span class="badge"></span>
+      </div>
+      <h3 class="card__title"></h3>
+      <p class="card__subtitle"></p>
+      <p class="card__desc"></p>
+      <ul class="features"></ul>
+      <div class="card__meta">
+        <span class="price"></span>
+        <span class="status"></span>
+      </div>
+      <button class="cta add-btn"></button>
+    </article>
+  </template>
+
+  <template id="cart-item-template">
+    <div class="cart-item">
+      <div>
+        <p class="cart-item__title"></p>
+        <p class="cart-item__meta"></p>
+      </div>
+      <button class="ghost remove-btn">Remove</button>
+    </div>
+  </template>
+
+  <!-- Checkout Modal -->
+  <div id="checkout-modal" class="modal">
+    <div class="modal__overlay"></div>
+    <div class="modal__content">
+      <div class="modal__header">
+        <h2>Complete Your Purchase</h2>
+        <button id="modal-close" class="ghost modal__close">✕</button>
+      </div>
+      <form id="checkout-form" name="purchase" method="POST" data-netlify="true">
+        <div class="form-group">
+          <label for="purchase-name">Name</label>
+          <input type="text" id="purchase-name" name="name" placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <label for="purchase-email">Email</label>
+          <input type="email" id="purchase-email" name="email" placeholder="Your email" required />
+        </div>
+        <div class="form-group">
+          <label for="purchase-items">Items</label>
+          <textarea id="purchase-items" name="items" placeholder="Your items" readonly></textarea>
+        </div>
+        <input type="hidden" name="bot-field" />
+        <button type="submit" class="cta modal__submit">Confirm Purchase</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+
+
+<!--<form name="contact" method="POST" data-netlify="true">
+  <input type="text" name="name" placeholder="Your name" required>
+  <input type="email" name="email" placeholder="Your email" required>
+  <textarea name="message" placeholder="Your message"></textarea>
+  <button type="submit">Send</button>
+</form> -->
+
+</html>
