@@ -22,7 +22,7 @@
         </div>
       </div>
       <div class="hero__stats">
-        <button class="pill" onclick="window.location.href='https://btf-vibe.netlify.app'">Back to game</button>
+        <button class="pill" onclick="window.location.href='https://btf-vibe.netlify.app'">Play BTF</button>
       </div>
     </div>
     <p class="hero__subtitle">Flashy, faster, and built for flexing your BTF status.</p>
@@ -94,7 +94,12 @@
         <h2>Complete Your Purchase</h2>
         <button id="modal-close" class="ghost modal__close">✕</button>
       </div>
-      <form id="checkout-form" name="contact" method="POST" data-netlify="true">
+      <form
+        id="checkout-form"
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="contact" />
         <input type="hidden" name="bot-field" />
         <div class="form-group">
@@ -113,6 +118,12 @@
       </form>
     </div>
   </div>
+
+
+
+  <form name="contact" method="POST" data-netlify="true" hidden>
+  <input type="hidden" name="form-name" value="contact" />
+</form>
 
   <script src="script.js"></script>
 </body>

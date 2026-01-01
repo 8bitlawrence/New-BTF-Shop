@@ -4,7 +4,7 @@ const products = [
     name: "BTF+",
     subtitle: "The Best Deal in BTF!",
     description: "Unlock the full BTF+ experience and dominate the leaderboards.",
-    priceLabel: "$14.99",
+    priceLabel: "$4.99/month",
     status: "Available",
     badge: "Premium Value",
     features: [
@@ -21,7 +21,7 @@ const products = [
     name: "Celestial Archon",
     subtitle: "The Rarest Pet in BTF",
     description: "Unlock the ultimate pet and showcase your legendary status!",
-    priceLabel: "$9.99 USD",
+    priceLabel: "$3.99 USD",
     status: "Available",
     badge: "Godly Rarity",
     features: ["One-time purchase", "Ultra-rare flex"],
@@ -31,7 +31,7 @@ const products = [
     name: "Unique Pet",
     subtitle: "1 in 22,222! Imagine that",
     description: "Flex on your friends with one of the rarest pets in the game!",
-    priceLabel: "$4.99 USD",
+    priceLabel: "$1.99 USD",
     status: "Available",
     badge: "Unique Rarity",
     features: ["One-time purchase", "Head-turning rarity"],
@@ -41,7 +41,7 @@ const products = [
     name: "Chromatic Pet",
     subtitle: "Crazy rare, and gives you TONS of coins",
     description: "Obtain a chromatic pet - the most dazzling in the game!",
-    priceLabel: "$0.99 USD",
+    priceLabel: "$0.39 USD",
     status: "Available",
     badge: "Chromatic Rarity",
     features: ["One-time purchase", "Coin monster"],
@@ -51,11 +51,22 @@ const products = [
     name: "Legendary Pet",
     subtitle: "Infinity Golem - Ridiculously Rare",
     description: "Claim an Infinity Golem and prove your power!",
-    priceLabel: "$0.49 USD",
+    priceLabel: "$0.19 USD",
     status: "Available",
     badge: "Legendary Rarity",
     features: ["One-time purchase", "Legendary aura"],
   },
+
+  {id: "custom-pet",
+    name: "Custom Pet",
+    subtitle: "Design your own pet!",
+    description: "This is a one of one custom pet. Choose your own color scheme, rarity name, pet name, and more! This one of-a-kind pet has the same stats as a Chromabeast, but is unenchantable.",
+    priceLabel: "$5.99 USD",
+    status: "Available",
+    badge: "Custom Creation",
+    features: [
+      "One-time purchase"],
+  }
 
 ];
 
@@ -99,6 +110,7 @@ function renderProducts() {
     const node = tpl.content.cloneNode(true);
     const card = node.querySelector(".card");
     card.dataset.id = product.id;
+    if (product.id === "custom-pet") card.classList.add("card--shimmer");
 
 
 
