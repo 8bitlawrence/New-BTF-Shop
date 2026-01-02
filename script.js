@@ -90,6 +90,13 @@ function matchesSearch(product) {
   );
 }
 
+function rngInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
 function filteredProducts() {
   return products.filter((p) => matchesSearch(p));
 }
@@ -197,6 +204,7 @@ const modal = document.getElementById("checkout-modal");
 const modalClose = document.getElementById("modal-close");
 const checkoutForm = document.getElementById("checkout-form");
 const purchaseMessageField = document.getElementById("purchase-message");
+const purchaseNumberField = document.getElementById("purchase-number");
 
 function openCheckout() {
   if (!cart.length) {
@@ -206,6 +214,9 @@ function openCheckout() {
   const itemsList = cart.map((item) => `${item.name} (${item.priceLabel})`).join(", ");
   purchaseMessageField.value = `Items: ${itemsList}`;
   modal.classList.add("is-visible");
+
+  const orderNumber = rngInclusive(1000000, 9999999);
+  purchaseNumberField.value = orderNumber;
 }
 
 function closeCheckout() {
@@ -227,7 +238,7 @@ checkoutForm.addEventListener("submit", (e) => {
     body: new URLSearchParams(formData),
   })
     .then(() => {
-      showToast("Purchase submitted! Check your email for a code.");
+      showToast("Purchase submitted! Your order is being processed.");
       clearCart();
       closeCheckout();
       checkoutForm.reset();
